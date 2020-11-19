@@ -130,6 +130,10 @@ export namespace androidmanagement_v1 {
    */
   export interface Schema$AdvancedSecurityOverrides {
     /**
+     * Controls Common Criteria Mode—security standards defined in the Common Criteria for Information Technology Security Evaluation (https://www.commoncriteriaportal.org/) (CC). Enabling Common Criteria Mode increases certain security components on a device, including AES-GCM encryption of Bluetooth Long Term Keys, and Wi-Fi configuration stores.Warning: Common Criteria Mode enforces a strict security model typically only required for IT products used in national security systems and other highly sensitive organizations. Standard device use may be affected. Only enabled if required.
+     */
+    commonCriteriaMode?: string | null;
+    /**
      * The policy for untrusted apps (apps from unknown sources) enforced on the device. Replaces install_unknown_sources_allowed (deprecated).
      */
     untrustedAppsPolicy?: string | null;
@@ -399,6 +403,15 @@ export namespace androidmanagement_v1 {
     userName?: string | null;
   }
   /**
+   * Information about Common Criteria Mode—security standards defined in the Common Criteria for Information Technology Security Evaluation (https://www.commoncriteriaportal.org/) (CC).This information is only available if statusReportingSettings.commonCriteriaModeEnabled is true in the device's policy.
+   */
+  export interface Schema$CommonCriteriaModeInfo {
+    /**
+     * Whether Common Criteria Mode is enabled.
+     */
+    commonCriteriaModeStatus?: string | null;
+  }
+  /**
    * A rule declaring which mitigating actions to take when a device is not compliant with its policy. For every rule, there is always an implicit mitigating action to set policy_compliant to false for the Device resource, and display a message on the device indicating that the device is not compliant with its policy. Other mitigating actions may optionally be taken as well, depending on the field values in the rule.
    */
   export interface Schema$ComplianceRule {
@@ -460,6 +473,10 @@ export namespace androidmanagement_v1 {
      * The state currently applied to the device.
      */
     appliedState?: string | null;
+    /**
+     * Information about Common Criteria Mode—security standards defined in the Common Criteria for Information Technology Security Evaluation (https://www.commoncriteriaportal.org/) (CC).This information is only available if statusReportingSettings.commonCriteriaModeEnabled is true in the device's policy.
+     */
+    commonCriteriaModeInfo?: Schema$CommonCriteriaModeInfo;
     /**
      * Device settings information. This information is only available if deviceSettingsEnabled is true in the device's policy.
      */
@@ -1275,7 +1292,7 @@ export namespace androidmanagement_v1 {
      */
     personalApplications?: Schema$PersonalApplicationPolicy[];
     /**
-     * Used together with personal_applications to control how apps in the personal profile are allowed or blocked.
+     * Used together with personalApplications to control how apps in the personal profile are allowed or blocked.
      */
     personalPlayStoreMode?: string | null;
     /**
@@ -1822,6 +1839,10 @@ export namespace androidmanagement_v1 {
      * Whether app reports are enabled.
      */
     applicationReportsEnabled?: boolean | null;
+    /**
+     * Whether Common Criteria Mode reporting is enabled.
+     */
+    commonCriteriaModeEnabled?: boolean | null;
     /**
      * Whether device settings reporting is enabled.
      */
@@ -2837,6 +2858,7 @@ export namespace androidmanagement_v1 {
      *   //   "appliedPolicyName": "my_appliedPolicyName",
      *   //   "appliedPolicyVersion": "my_appliedPolicyVersion",
      *   //   "appliedState": "my_appliedState",
+     *   //   "commonCriteriaModeInfo": {},
      *   //   "deviceSettings": {},
      *   //   "disabledReason": {},
      *   //   "displays": [],
@@ -3284,6 +3306,7 @@ export namespace androidmanagement_v1 {
      *       //   "appliedPolicyName": "my_appliedPolicyName",
      *       //   "appliedPolicyVersion": "my_appliedPolicyVersion",
      *       //   "appliedState": "my_appliedState",
+     *       //   "commonCriteriaModeInfo": {},
      *       //   "deviceSettings": {},
      *       //   "disabledReason": {},
      *       //   "displays": [],
@@ -3324,6 +3347,7 @@ export namespace androidmanagement_v1 {
      *   //   "appliedPolicyName": "my_appliedPolicyName",
      *   //   "appliedPolicyVersion": "my_appliedPolicyVersion",
      *   //   "appliedState": "my_appliedState",
+     *   //   "commonCriteriaModeInfo": {},
      *   //   "deviceSettings": {},
      *   //   "disabledReason": {},
      *   //   "displays": [],
