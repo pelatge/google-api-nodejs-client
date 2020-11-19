@@ -311,7 +311,7 @@ export namespace recommender_v1 {
      */
     path?: string | null;
     /**
-     * Set of filters to apply if `path` refers to array elements or nested array elements in order to narrow down to a single unique element that is being tested/modified. This is intended to be an exact match per filter. To perform advanced matching, use path_value_matchers. * Example: { "/versions/x/name" : "it-123" "/versions/x/targetSize/percent": 20 \} * Example: { "/bindings/x/role": "roles/admin" "/bindings/x/condition" : null \} * Example: { "/bindings/x/role": "roles/admin" "/bindings/x/members/x" : ["x@google.com", "y@google.com"] \} When both path_filters and path_value_matchers are set, an implicit AND must be performed.
+     * Set of filters to apply if `path` refers to array elements or nested array elements in order to narrow down to a single unique element that is being tested/modified. This is intended to be an exact match per filter. To perform advanced matching, use path_value_matchers. * Example: { "/versions/x/name" : "it-123" "/versions/x/targetSize/percent": 20 \} * Example: { "/bindings/x/role": "roles/owner" "/bindings/x/condition" : null \} * Example: { "/bindings/x/role": "roles/owner" "/bindings/x/members/x" : ["x@example.com", "y@example.com"] \} When both path_filters and path_value_matchers are set, an implicit AND must be performed.
      */
     pathFilters?: {[key: string]: any} | null;
     /**
