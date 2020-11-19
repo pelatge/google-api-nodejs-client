@@ -2434,7 +2434,7 @@ export namespace dialogflow_v2beta1 {
      */
     timeZone?: string | null;
     /**
-     * This field can be used to pass HTTP headers for a webhook call. These headers will be sent to webhook alone with the headers that have been configured through Dialogflow web console. The headers defined within this field will overwrite the headers configured through Dialogflow console if there is a conflict. Header names are case-insensitive. Google's specified headers are not allowed. Including: "Host", "Content-Length", "Connection", "From", "User-Agent", "Accept-Encoding", "If-Modified-Since", "If-None-Match", "X-Forwarded-For", etc.
+     * This field can be used to pass HTTP headers for a webhook call. These headers will be sent to webhook along with the headers that have been configured through Dialogflow web console. The headers defined within this field will overwrite the headers configured through Dialogflow console if there is a conflict. Header names are case-insensitive. Google's specified headers are not allowed. Including: "Host", "Content-Length", "Connection", "From", "User-Agent", "Accept-Encoding", "If-Modified-Since", "If-None-Match", "X-Forwarded-For", etc.
      */
     webhookHeaders?: {[key: string]: string} | null;
   }
@@ -2515,6 +2515,10 @@ export namespace dialogflow_v2beta1 {
      * The path for a Cloud Storage source file for reloading document content. If not provided, the Document's existing source will be reloaded.
      */
     gcsSource?: Schema$GoogleCloudDialogflowV2beta1GcsSource;
+    /**
+     * Whether to import custom metadata from Google Cloud Storage. Only valid when the document source is Google Cloud Storage URI.
+     */
+    importGcsCustomMetadata?: boolean | null;
   }
   /**
    * The request message for Agents.RestoreAgent.
@@ -11711,6 +11715,8 @@ export namespace dialogflow_v2beta1 {
      *
      *   // Do the magic
      *   const res = await dialogflow.projects.agent.knowledgeBases.documents.create({
+     *     // Whether to import custom metadata from Google Cloud Storage. Only valid when the document source is Google Cloud Storage URI.
+     *     importGcsCustomMetadata: 'placeholder-value',
      *     // Required. The knowledge base to create a document for. Format: `projects//knowledgeBases/`.
      *     parent: 'projects/my-project/agent/knowledgeBases/my-knowledgeBase',
      *
@@ -12492,7 +12498,8 @@ export namespace dialogflow_v2beta1 {
      *     requestBody: {
      *       // request body parameters
      *       // {
-     *       //   "gcsSource": {}
+     *       //   "gcsSource": {},
+     *       //   "importGcsCustomMetadata": false
      *       // }
      *     },
      *   });
@@ -12609,6 +12616,10 @@ export namespace dialogflow_v2beta1 {
 
   export interface Params$Resource$Projects$Agent$Knowledgebases$Documents$Create
     extends StandardParameters {
+    /**
+     * Whether to import custom metadata from Google Cloud Storage. Only valid when the document source is Google Cloud Storage URI.
+     */
+    importGcsCustomMetadata?: boolean;
     /**
      * Required. The knowledge base to create a document for. Format: `projects//knowledgeBases/`.
      */
@@ -15548,6 +15559,8 @@ export namespace dialogflow_v2beta1 {
      *
      *   // Do the magic
      *   const res = await dialogflow.projects.knowledgeBases.documents.create({
+     *     // Whether to import custom metadata from Google Cloud Storage. Only valid when the document source is Google Cloud Storage URI.
+     *     importGcsCustomMetadata: 'placeholder-value',
      *     // Required. The knowledge base to create a document for. Format: `projects//knowledgeBases/`.
      *     parent: 'projects/my-project/knowledgeBases/my-knowledgeBase',
      *
@@ -16329,7 +16342,8 @@ export namespace dialogflow_v2beta1 {
      *     requestBody: {
      *       // request body parameters
      *       // {
-     *       //   "gcsSource": {}
+     *       //   "gcsSource": {},
+     *       //   "importGcsCustomMetadata": false
      *       // }
      *     },
      *   });
@@ -16446,6 +16460,10 @@ export namespace dialogflow_v2beta1 {
 
   export interface Params$Resource$Projects$Knowledgebases$Documents$Create
     extends StandardParameters {
+    /**
+     * Whether to import custom metadata from Google Cloud Storage. Only valid when the document source is Google Cloud Storage URI.
+     */
+    importGcsCustomMetadata?: boolean;
     /**
      * Required. The knowledge base to create a document for. Format: `projects//knowledgeBases/`.
      */
